@@ -1,6 +1,8 @@
 package com.javalec.ex;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,8 +29,20 @@ public class HelloWorld extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("Hello World!!");
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("doGet");
+		response.setContentType("text/html; charset=euc-kr");
+		PrintWriter writer = response.getWriter();
+		
+		writer.println("<html>");
+		writer.println("<head>");
+		writer.println("</head>");
+		writer.println("<body>");
+		writer.println("<h1>Hello World!</h1>");
+		writer.println("</body>");
+		writer.println("<html>");
+		
+		writer.close();
 	}
 
 	/**
@@ -36,7 +50,20 @@ public class HelloWorld extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+//		doGet(request, response);
+		System.out.println("doPost");
+		response.setContentType("text/html; charset=euc-kr");
+		PrintWriter writer = response.getWriter();
+		
+		writer.println("<html>");
+		writer.println("<head>");
+		writer.println("</head>");
+		writer.println("<body>");
+		writer.println("<h1>Post방식 doPost Method 호출</h1>");
+		writer.println("</body>");
+		writer.println("<html>");
+		
+		writer.close();
 	}
 
 }
